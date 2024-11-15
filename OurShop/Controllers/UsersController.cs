@@ -36,11 +36,18 @@ namespace OurShop.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] User user)
         {
-            User newUser = userServices.AddUser(user);
-            if(newUser == null)
+            int res= userServices.cheakPassword(user.Password);
+            if(res < 3)
             {
-                return BadRequest(user);
+                return (BadRequest(user));
             }
+            User newUser = userServices.AddUser(user);
+           
+
+            //if(newUser == null)
+            //{
+            //    return BadRequest(user);
+            //}
             //int numberOfUsers = System.IO.File.ReadLines("M:\\webAPI\\OurShop\\OurShop\\Users.txt").Count();
             //user.Id = numberOfUsers + 1;
             //string userJson = JsonSerializer.Serialize(user);
@@ -118,10 +125,20 @@ namespace OurShop.Controllers
 
         // PUT api/<UsersController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] User userToUpdate)
+        public IActionResult Put(int id, [FromBody] User userToUpdate)
         {
-           userServices.UpdateUser(id, userToUpdate);
-           
+            int res = userServices.cheakPassword(userToUpdate.Password);
+            if (res < 3)
+            {
+                return (BadRequest(userToUpdate));
+            }
+            
+             userServices.UpdateUser(id, userToUpdate);
+            return (Ok(userToUpdate));
+
+
+
+
             //string textToReplace = string.Empty;
             //using (StreamReader reader = System.IO.File.OpenText("M:\\webAPI\\OurShop\\OurShop\\Users.txt"))
             //{

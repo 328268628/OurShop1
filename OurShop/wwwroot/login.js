@@ -22,11 +22,12 @@ const addUser = async  () => {
         })
 
         const dataPost = await responsePost.json()
-        if (dataPost.OK)
+        if (responsePost.ok)
             alert("Add user sucsessfully")
         /*alert(dataPost)*/
         else {
-            alert(user.password)
+            if (responsePost.status === 400)
+                alert("חוזק סיסמא לא תקין")
         }
     }
     catch (err) {
@@ -112,13 +113,18 @@ const fetchLogin = async () => {
            
 
         })
-
+       
         const postData = await responsePost.json()
-        console.log('post data:', postData)
+        if (responsePost.ok) {
+            console.log('post data:', postData)
 
-        sessionStorage.setItem("Name", postData.firstName)
-        sessionStorage.setItem("Id", postData.id)
-        window.location.href = "userDetails.html"
+            sessionStorage.setItem("Name", postData.firstName)
+            sessionStorage.setItem("Id", postData.id)
+            window.location.href = "userDetails.html"
+        }
+        else {
+            alert("שדות חובה")
+        }
     }
     catch (err) {
         alert(err)
