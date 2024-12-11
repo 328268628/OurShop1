@@ -16,19 +16,19 @@ namespace Services
             this.userRepository = userRepository;
         }
 
-        public User AddUser(User user)
+        public async Task<User> AddUser(User user)
         {
             int a = user.Email.IndexOf('@');
             int b = user.Email.IndexOf(".com");
-            if (a != -1 && b != -1 && a<b)
+            if (a != -1 && b != -1 && a < b)
             {
-                return userRepository.AddUser(user);
+                return await userRepository.AddUser(user);
             }
             else
             {
                 return (null);
             }
-            
+
         }
 
         public int cheakPassword(string password)
@@ -40,20 +40,24 @@ namespace Services
 
         }
 
-        public User Login(string email, string password)
+        public async Task<User> Login(string email, string password)
         {
 
-            return userRepository.Login(email, password);
+            return await userRepository.Login(email, password);
 
 
         }
 
 
-        public void UpdateUser(int id, User userToUpdate)
+        public async Task UpdateUser(int id, User userToUpdate)
         {
 
-            userRepository.UpdateUser(id, userToUpdate);
+            await userRepository.UpdateUser(id, userToUpdate);
 
+        }
+        public async Task<User> GetUserById(int id)
+        {
+            return await userRepository.GetUserById(id);
         }
 
     }
