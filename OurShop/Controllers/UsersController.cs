@@ -2,6 +2,8 @@
 using System.Text.Json;
 using Services;
 using Entitis;
+using DTO;
+using AutoMapper;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace OurShop.Controllers
@@ -11,25 +13,28 @@ namespace OurShop.Controllers
     public class UsersController : ControllerBase
     {
         IUserServices userServices;
-
-        public UsersController(IUserServices userServices)
+        IMapper mapper;
+        public UsersController(IUserServices userServices, IMapper mapper)
         {
             this.userServices = userServices;
+            this.mapper = mapper;
         }
 
 
         // GET: api/<UsersController>
-        [HttpGet]
-        public IEnumerable<string> Get()
-        {
-            return new string[] { "shabat", "shalom" };
-        }
+        //[HttpGet]
+        //public IEnumerable<string> Get()
+        //{
+        //    return new string[] { "shabat", "shalom" };
+        //}
 
         // GET api/<UsersController>/5
         [HttpGet("{id}")]
-        public async Task<User> Get(int id)
+        public async Task<UserDTO> Get(int id)
         {
-            return await userServices.GetUserById(id);
+            User user= await userServices.GetUserById(id);
+            UserDTO userDTO = mapper.Map<User, UserDTO>(user);
+            return userDTO;
         }
 
         // POST api/<UsersController>
@@ -134,9 +139,9 @@ namespace OurShop.Controllers
 
 
         // DELETE api/<UsersController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //[HttpDelete("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }

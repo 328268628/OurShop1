@@ -26,7 +26,7 @@ namespace Repository
         }
         public async Task<Order> GetOrderById(int id)
         {
-            Order order = await manageDbContext.Orders.FirstOrDefaultAsync(o => o.Id == id);
+            Order order = await manageDbContext.Orders.Include(x=>x.OrderItems).FirstOrDefaultAsync(o => o.Id == id);
             return order;
 
         }

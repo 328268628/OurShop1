@@ -5,11 +5,13 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OurShop", "OurShop\OurShop.csproj", "{28FC4B20-472B-48F6-A00C-0992461F8423}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{B613A847-388B-44EB-9783-FE536ABE3F5E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{B613A847-388B-44EB-9783-FE536ABE3F5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{89A65AF8-36BA-4818-9235-6A019759161F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Services", "Services\Services.csproj", "{89A65AF8-36BA-4818-9235-6A019759161F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entitis", "Entitis\Entitis.csproj", "{7149CB03-FCF5-4BD1-B78C-ABEAA13097AA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entitis", "Entitis\Entitis.csproj", "{7149CB03-FCF5-4BD1-B78C-ABEAA13097AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{3F578357-CB8A-43EA-9D3D-9D26E2DDF0D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{7149CB03-FCF5-4BD1-B78C-ABEAA13097AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7149CB03-FCF5-4BD1-B78C-ABEAA13097AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7149CB03-FCF5-4BD1-B78C-ABEAA13097AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F578357-CB8A-43EA-9D3D-9D26E2DDF0D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F578357-CB8A-43EA-9D3D-9D26E2DDF0D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F578357-CB8A-43EA-9D3D-9D26E2DDF0D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F578357-CB8A-43EA-9D3D-9D26E2DDF0D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

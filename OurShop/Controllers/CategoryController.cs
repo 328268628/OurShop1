@@ -24,31 +24,31 @@ namespace OurShop.Controllers
         }
 
         // GET api/<CategoryController>/5
-        [HttpGet("{id}")]
-        public void GetById(int id)
-        {
-            //return await categoryService.GetCategoryById(id);
-        }
+        //[HttpGet("{id}")]
+        //public void GetById(int id)
+        //{
+        //    //return await categoryService.GetCategoryById(id);
+        //}
 
         // POST api/<CategoryController>
-        [HttpPost]
-        public void Post([FromBody] Category category)
-        {
-            //return await categoryService.AddCategory(category);
-        }
+        //[HttpPost]
+        //public void Post([FromBody] Category category)
+        //{
+        //    //return await categoryService.AddCategory(category);
+        //}
 
         // PUT api/<CategoryController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Category category)
-        {
-             //await categoryService.UpdateCategory(id, category);
-        }
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] Category category)
+        //{
+        //     //await categoryService.UpdateCategory(id, category);
+        //}
 
         // DELETE api/<CategoryController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id, [FromBody] Category category)
-        {
-            //await categoryService.DeleteCategory(id, category);
-        }
+        //[HttpDelete("{id}")]
+        //public void Delete(int id, [FromBody] Category category)
+        //{
+        //    //await categoryService.DeleteCategory(id, category);
+        //}
     }
 }

@@ -1,4 +1,6 @@
-﻿using Entitis;
+﻿using AutoMapper;
+using DTO;
+using Entitis;
 using Microsoft.AspNetCore.Mvc;
 using Services;
 
@@ -11,45 +13,50 @@ namespace OurShop.Controllers
     public class ProductController : ControllerBase
     {
         IProductService productService;
+        IMapper mapper;
 
-        public ProductController(IProductService productService)
+        public ProductController(IProductService productService, IMapper mapper)
         {
             this.productService = productService;
+            this.mapper = mapper;
         }
 
         // GET: api/<ProductController>
         [HttpGet]
-        public async Task<List<Product>> Get()
+        public async Task<List<ProductDTO>> Get()
         {
-            return await productService.GetProducts();
+            List<Product> products= await productService.GetProducts();
+            List<ProductDTO> productDTOs = mapper.Map<List<Product>, List<ProductDTO>>(products);
+            return productDTOs;
         }
 
         // GET api/<ProductController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        //[HttpGet("{id}")]
+        //public string Get(int id)
+        
+
+        //    return "value";
+        //}
 
         // POST api/<ProductController>
-        [HttpPost]
-        public void Post([FromBody] Product product)
-        {
-            //return await productService.AddProduct(product);
-        }
+        //[HttpPost]
+        //public void Post([FromBody] Product product)
+        //{
+        //    //return await productService.AddProduct(product);
+        //}
 
         // PUT api/<ProductController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Product productToUpdate)
-        {
-             /*await productService.UpdateProduct(id, productToUpdate);*/
-        } 
+        //[HttpPut("{id}")]
+        //public void Put(int id, [FromBody] Product productToUpdate)
+        //{
+        //     /*await productService.UpdateProduct(id, productToUpdate);*/
+        //} 
 
         // DELETE api/<ProductController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id, [FromBody] Product product)
-        {
-            //await productService.DeleteProducts(id, product);
-        }
+        //[HttpDelete("{id}")]
+        //public void Delete(int id, [FromBody] Product product)
+        //{
+        //    //await productService.DeleteProducts(id, product);
+        //}
     }
 }

@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Entitis;
-namespace Repository;
+
+namespace OurShop.Models;
 
 public partial class AdeNetManageContext : DbContext
 {

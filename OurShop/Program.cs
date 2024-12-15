@@ -20,6 +20,8 @@ builder.Services.AddDbContext<AdeNetManageContext>(options => options.UseSqlServ
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {

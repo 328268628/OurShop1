@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Services;
 using Entitis;
+using AutoMapper;
+using DTO;
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace OurShop.Controllers
@@ -10,10 +12,11 @@ namespace OurShop.Controllers
     public class OrderController : ControllerBase
     {
         IOrderService OrderService;
-
-        public OrderController(IOrderService orderService)
+        IMapper mapper;
+        public OrderController(IOrderService orderService, IMapper mapper)
         {
             OrderService = orderService;
+            this.mapper = mapper;
         }
 
         // GET: api/<OrderController>
@@ -25,9 +28,14 @@ namespace OurShop.Controllers
 
         // GET api/<OrderController>/5
         [HttpGet("{id}")]
-        public async Task<Order> Get(int id)
+        public async Task<OrderDTO> Get(int id)
         {
-            return await OrderService.GetOrderById(id);
+            //return await OrderService.GetOrderById(id);
+
+            Order order = await OrderService.GetOrderById(id);
+            OrderDTO orderDTOs = mapper.Map<Order, OrderDTO>(order);
+            return orderDTOs;
+
         }
 
         // POST api/<OrderController>
@@ -50,3 +58,4 @@ namespace OurShop.Controllers
         }
     }
 }
+

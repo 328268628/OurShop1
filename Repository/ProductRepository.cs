@@ -34,7 +34,7 @@ namespace Repository
         //}
         public async Task<List<Product>> GetProduct()
         {
-            return await manageDbContext.Products.ToListAsync();
+            return await manageDbContext.Products.Include(x=>x.Category).ToListAsync();
         }
         //public async Task DeleteProduct(int id, Product product)
         //{
