@@ -10,6 +10,9 @@ namespace OurShop
             CreateMap<Product, ProductDTO>();
             CreateMap<User, UserDTO>();
             CreateMap<Order, OrderDTO>();
+            CreateMap<OrderPostDTO, Order>();
+            CreateMap<OrderItem, OrderItemDTO>();
+            CreateMap<OrderItemDTO, OrderItem>();
         }
     }
 }

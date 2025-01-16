@@ -1,5 +1,5 @@
 ﻿using Entitis;
-
+using DTO;
 namespace Repository
 {
     public interface IOrderRepository

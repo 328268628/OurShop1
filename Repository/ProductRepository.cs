@@ -32,15 +32,22 @@ namespace Repository
 
 
         //}
-        public async Task<List<Product>> GetProduct()
-        {
-            return await manageDbContext.Products.Include(x=>x.Category).ToListAsync();
-        }
-        //public async Task DeleteProduct(int id, Product product)
+        //public async Task<List<Product>> GetProduct()
         //{
-        //    product.Id = id;
-        //    manageDbContext.Products.Remove(product);
-        //    await manageDbContext.SaveChangesAsync();
+        //    return await manageDbContext.Products.Include(x=>x.Category).ToListAsync();
         //}
+        public async Task<List<Product>> GetProduct( string? desc, int? minPrice, int? maxPrice, int?[] categoryIds)
+        {
+            var query = manageDbContext.Products.Where(product =>
+              (desc == null ? (true) : (product.Description.Contains(desc)))
+              && ((minPrice == null) ? (true) : (product.Price >= minPrice))
+              && ((maxPrice == null) ? (true) : (product.Price <= maxPrice))
+              && ((categoryIds.Length == 0) ? (true) : (categoryIds.Contains(product.CategoryId))))
+              .OrderBy(product => product.Price);
+            List<Product> products = await query.Include(c => c.Category).ToListAsync();
+            return products;
+            //return await manageDbContext.Products.Include(a => a.Category).ToListAsync();
+        }
+
     }
 }

@@ -27,10 +27,10 @@ namespace Services
         //    await productRepository.UpdateProduct(id, productToUpdate);
 
         //}
-        public async Task<List<Product>> GetProducts()
+        public async Task<List<Product>> GetProducts(string? desc, int? minPrice, int? maxPrice, int?[] categoryIds)
         {
 
-            return await productRepository.GetProduct();
+            return await productRepository.GetProduct( desc, minPrice, maxPrice, categoryIds);
 
         }
 

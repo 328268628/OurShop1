@@ -40,9 +40,10 @@ namespace OurShop.Controllers
 
         // POST api/<OrderController>
         [HttpPost]
-        public async Task<Order> Post([FromBody] Order order)
+        public async Task<Order> Post([FromBody] OrderPostDTO order)
         {
-            return await OrderService.AddOrder(order);
+            //Order newOrder = ;
+            return await OrderService.AddOrder(mapper.Map<OrderPostDTO, Order>(order));
         }
 
         // PUT api/<OrderController>/5

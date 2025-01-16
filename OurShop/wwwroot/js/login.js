@@ -22,7 +22,7 @@ const addUser = async  () => {
         })
 
         const dataPost = await responsePost.json()
-        if (responsePost.ok)
+        if (dataPost.ok)
             alert("Add user sucsessfully")
         /*alert(dataPost)*/
         else {

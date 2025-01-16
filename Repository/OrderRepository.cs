@@ -1,4 +1,6 @@
-﻿using Entitis;
+﻿using AutoMapper;
+using DTO;
+using Entitis;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -11,14 +13,17 @@ namespace Repository
     public class OrderRepository : IOrderRepository
     {
         AdeNetManageContext manageDbContext;
-
-        public OrderRepository(AdeNetManageContext manageDbContext)
+        IMapper _mapper;
+        public OrderRepository(IMapper mapper,AdeNetManageContext manageDbContext)
         {
+            _mapper = mapper;
             this.manageDbContext = manageDbContext;
         }
 
         public async Task<Order> AddOrder(Order order)
         {
+
+           
             await manageDbContext.Orders.AddAsync(order);
             await manageDbContext.SaveChangesAsync();
             return order;
@@ -26,8 +31,7 @@ namespace Repository
         }
         public async Task<Order> GetOrderById(int id)
         {
-            Order order = await manageDbContext.Orders.Include(x=>x.OrderItems).FirstOrDefaultAsync(o => o.Id == id);
-            return order;
+            return await manageDbContext.Orders.Include(p => p.User).Include(o => o.OrderItems).FirstOrDefaultAsync(order => order.Id == id);
 
         }
     }
