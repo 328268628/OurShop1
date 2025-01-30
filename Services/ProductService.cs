@@ -26,6 +26,7 @@ namespace Services
 
         //    await productRepository.UpdateProduct(id, productToUpdate);
 
+
         //}
         public async Task<List<Product>> GetProducts(string? desc, int? minPrice, int? maxPrice, int?[] categoryIds)
         {

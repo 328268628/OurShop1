@@ -74,6 +74,7 @@ const cheakPassword = async () => {
 }
 
 
+
 const newRegister = () => {
     const email = document.querySelector("#email").value
 

@@ -10,4 +10,5 @@ namespace Services
         Task<User> Login(string email, string password);
         Task UpdateUser(int id, User userToUpdate);
     }
+
 }

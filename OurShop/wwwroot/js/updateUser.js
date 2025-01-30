@@ -52,6 +52,7 @@ const cheakPassword = async () => {
     }
     catch {
         alert(err)
+
     }
 }
 

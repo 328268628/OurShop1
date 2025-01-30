@@ -39,6 +39,7 @@ namespace OurShop.Controllers
 
         // POST api/<UsersController>
         [HttpPost]
+
         public async Task<IActionResult> Post([FromBody] User user)
         {
             int res= userServices.cheakPassword(user.Password);

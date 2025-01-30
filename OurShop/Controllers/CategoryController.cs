@@ -8,6 +8,7 @@ namespace OurShop.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class CategoryController : ControllerBase
+
     {
         ICategoryService categoryService;
 

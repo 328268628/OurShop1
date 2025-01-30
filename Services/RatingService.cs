@@ -4,8 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace DTO
+namespace Services
 {
-    public record UserDTO(int Id, string Email, string firstName, string LastName);
+    public class RatingService
+    {
+
+    }
 }

@@ -31,6 +31,7 @@ namespace Repository
 
 
         //}
+
         public async Task<List<Category>> GetCategory()
         {
             return await manageDbContext.Categories.ToListAsync();

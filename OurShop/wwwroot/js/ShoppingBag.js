@@ -20,10 +20,11 @@ const DrawProducts = () => {
 const DrawProduct = (product) => {
     let tmp = document.getElementById("temp-row");
     let ProductChild = tmp.content.cloneNode(true)
-    //let url = `./pictures/${product.image}`
+    let url = `./pictures/${product.image}.jpg`
 
-    //ProductChild.querySelector(".image").style.backgroundImage = `url(${url})`
-    /*cloneProduct.querySelector(".img").src = "./pictures/" + product.image*/
+ ProductChild.querySelector(".image").style.backgroundImage = `url(${url})`
+   /* cloneProduct.querySelector(".img").src = "./pictures/" + product.image*/
+   /* productChild.querySelector(".img").src = "./pictures/" + product.image + '.jpg'*/
     ProductChild.querySelector(".itemName").textContent = product.name
     ProductChild.querySelector(".itemNumber").innerText = product.price
     //cloneProduct.querySelector(".description").innerText = product.descreaptionProduct
@@ -65,6 +66,7 @@ const placeOrder = async() => {
                     orderSum: JSON.parse( sessionStorage.getItem("totalPrice")),
                     orderItems: products
                 })
+
 
             });
             if (!responsePost.ok) {

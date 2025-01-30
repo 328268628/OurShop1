@@ -7,6 +7,7 @@ namespace OurShop
     {
         public Mapper()
         {
+
             CreateMap<Product, ProductDTO>();
             CreateMap<User, UserDTO>();
             CreateMap<Order, OrderDTO>();

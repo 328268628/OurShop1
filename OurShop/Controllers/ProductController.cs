@@ -19,6 +19,7 @@ namespace OurShop.Controllers
         {
             this.productService = productService;
             this.mapper = mapper;
+
         }
 
         // GET: api/<ProductController>

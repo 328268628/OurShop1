@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using NLog.Web;
 using Repository;
 using Services;
 
@@ -6,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
+builder.Host.UseNLog();
 builder.Services.AddControllers();
 builder.Services.AddScoped<IUserRepository,UserRepository>();
 builder.Services.AddScoped<IUserServices, UserServices>();
@@ -15,7 +17,7 @@ builder.Services.AddScoped<ICategotyRepository, CategotyRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderService, OrderService>();
-builder.Services.AddDbContext<AdeNetManageContext>(options => options.UseSqlServer("Data Source=srv2\\pupils;Initial Catalog=AdeNetManage;Integrated Security=True;Pooling=False"));
+builder.Services.AddDbContext<AdeNetManageContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConectionString")));
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

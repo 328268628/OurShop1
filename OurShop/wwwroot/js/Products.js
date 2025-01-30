@@ -5,7 +5,8 @@
     const categoryIds= sessionStorage.getItem("category")
     return { nameSearch, minPrice, maxPrice, categoryIds }
 }
-addEventListener("load", ()=> {
+addEventListener("load", () => {
+
     let product = JSON.parse(sessionStorage.getItem("shopingBag")) || []
     let category =  []
     sessionStorage.setItem("category", JSON.stringify(category))
@@ -74,7 +75,7 @@ const GetProducts = async  () => {
 const DrawProduct = (product) => {
     let tmp = document.getElementById("temp-card");
     let productChild = tmp.content.cloneNode(true)
-    //productChild.querySelector("img").src = "./pictures/" + product.image
+    productChild.querySelector("img").src = "./pictures/" + product.image+'.jpg'
     productChild.querySelector("h1").textContent = product.name
     productChild.querySelector(".price").innerText = product.price
     productChild.querySelector(".description").innerText = product.description
