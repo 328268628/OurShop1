@@ -49,7 +49,7 @@ namespace Services
         }
 
 
-        public async Task UpdateUser(int id, User userToUpdate)
+        public async Task UpdateUser(int id, User userToUpdate)//return the updated user
         {
 
             await userRepository.UpdateUser(id, userToUpdate);

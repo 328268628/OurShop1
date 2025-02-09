@@ -116,7 +116,7 @@ const fetchLogin = async () => {
         })
        
         const postData = await responsePost.json()
-        if (responsePost.ok) {
+        if (responsePost.ok) {//includes also 204. check in this order: !responsePost.ok- error, status==204- not found, ok- success.
             console.log('post data:', postData)
 
             sessionStorage.setItem("Name", postData.firstName)
@@ -124,6 +124,8 @@ const fetchLogin = async () => {
             window.location.href = "userDetails.html"
         }
         else {
+            //status=204
+            //not found
             alert("שדות חובה")
         }
     }

@@ -84,14 +84,14 @@ const DrawProduct = (product) => {
 }
 const drawProducts = async (products) => {
     document.querySelector("#PoductList").innerHTML = " "
-    for (let i = 0; i < products.length; i++) {
+    for (let i = 0; i < products.length; i++) {//foEach.
         DrawProduct(products[i])
     }
 }
 
 const drawCategory = async () => {
     category = await addCategory()
-    for (let i = 0; i < category.length; i++) {
+    for (let i = 0; i < category.length; i++) {//use forEach, send to a different func- this one should be called drawCategories and the other one- category.
         let tmp = document.getElementById("temp-category");
         let cloneCategory = tmp.content.cloneNode(true)
         cloneCategory.querySelector("input").id = i
@@ -113,7 +113,7 @@ const filterCategory = (category, index) => {
     else {
         let categories = sessionStorage.getItem("category")
         categories = JSON.parse(categories)
-        let i = 0;
+        let i = 0;//use indexOf
         for (; i < categories.length; i++) {
             if (categories[i] == category.id)
                 break;
@@ -123,7 +123,7 @@ const filterCategory = (category, index) => {
     }
     GetProducts()
 }
-const addCategory = async () => {
+const addCategory = async () => {//getCategories, not add.
     try {
         const responsePost = await fetch('https://localhost:7057/api/Category', {
             method: 'GET',

@@ -71,6 +71,8 @@ const updateUserr = async () => {
             body: JSON.stringify(user)
 
         })
+        //status==204
+        //not found
         if (responsePost.ok)
             alert("update user sucsessfully")
         else {
