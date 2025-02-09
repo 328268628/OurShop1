@@ -10,7 +10,7 @@ const DrawProducts = () => {
     console.log(products.length);
     document.getElementById("itemCount").textContent = products.length; 
     document.querySelector("tbody").innerHTML = ''
-    for (let i = 0; i < products.length; i++) {
+    for (let i = 0; i < products.length; i++) {//forEach is nicer
         totalPrice += parseInt(products[i].price)
         DrawProduct(products[i])
     }
@@ -34,7 +34,7 @@ const DrawProduct = (product) => {
 const deleteFromCart = (product) => {
     let products = sessionStorage.getItem("shopingBag")
     products = JSON.parse(products)
-    let i = 0;
+    let i = 0;//use indexof instead of for
     for (; i < products.length; i++) {
         if (products[i].id == product.id)
             break;
@@ -49,7 +49,7 @@ const placeOrder = async() => {
     let user = JSON.parse(sessionStorage.getItem("user"))
     if (user != -1 && shopingBag.length != 0) {
         let products = []
-        for (let i = 0; i < shopingBag.length; i++) {
+        for (let i = 0; i < shopingBag.length; i++) {//forEach is nicer
             let currentProduct = { productId: shopingBag[i].id, quentity: 1 }
             products.push(currentProduct);
             console.log(currentProduct)
