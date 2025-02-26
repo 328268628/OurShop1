@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MyShop;
 using NLog.Web;
 using Repository;
 using Services;
@@ -17,6 +18,9 @@ builder.Services.AddScoped<ICategotyRepository, CategotyRepository>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
 builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<IRatingRepository, RatingRepository>();
+builder.Services.AddScoped<IRatingService, RatingService>();
+
 builder.Services.AddDbContext<AdeNetManageContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConectionString")));
 
 builder.Services.AddEndpointsApiExplorer();
@@ -38,6 +42,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseAuthorization();
+app.UseMiddlewareRating();
 
 app.MapControllers();
 
