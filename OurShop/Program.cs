@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using MyShop;
+using OurShop;
 using NLog.Web;
 using Repository;
 using Services;
