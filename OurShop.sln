@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entitis", "Entitis\Entitis.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTO", "DTO\DTO.csproj", "{3F578357-CB8A-43EA-9D3D-9D26E2DDF0D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testes", "Testes\Testes.csproj", "{833821B0-D07B-491E-BE2C-C1A70ED7AE0B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestOurShop", "TestOurShop\TestOurShop.csproj", "{8F7ADB0C-DFC7-45EA-B425-750C3A9B7C63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{3F578357-CB8A-43EA-9D3D-9D26E2DDF0D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F578357-CB8A-43EA-9D3D-9D26E2DDF0D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F578357-CB8A-43EA-9D3D-9D26E2DDF0D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{833821B0-D07B-491E-BE2C-C1A70ED7AE0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{833821B0-D07B-491E-BE2C-C1A70ED7AE0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{833821B0-D07B-491E-BE2C-C1A70ED7AE0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{833821B0-D07B-491E-BE2C-C1A70ED7AE0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F7ADB0C-DFC7-45EA-B425-750C3A9B7C63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F7ADB0C-DFC7-45EA-B425-750C3A9B7C63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F7ADB0C-DFC7-45EA-B425-750C3A9B7C63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F7ADB0C-DFC7-45EA-B425-750C3A9B7C63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

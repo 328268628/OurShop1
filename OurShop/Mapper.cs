@@ -14,6 +14,7 @@ namespace OurShop
             CreateMap<OrderPostDTO, Order>();
             CreateMap<OrderItem, OrderItemDTO>();
             CreateMap<OrderItemDTO, OrderItem>();
+            CreateMap<OrderItem, OrderItemDTO>();
         }
     }
 }

@@ -22,13 +22,17 @@ const addUser = async  () => {
         })
 
         const dataPost = await responsePost.json()
-        if (dataPost.ok)
+        if (dataPost.ok) { 
             alert("Add user sucsessfully")
+            sessionStorage.setItem("currentUser", dataPost)
+            window.location.href = "userDetails.html"
+        }
         /*alert(dataPost)*/
         else {
             if (responsePost.status === 400)
                 alert("חוזק סיסמא לא תקין")
         }
+       
     }
     catch (err) {
         alert(err)
@@ -121,6 +125,7 @@ const fetchLogin = async () => {
 
             sessionStorage.setItem("Name", postData.firstName)
             sessionStorage.setItem("Id", postData.id)
+            sessionStorage.setItem("currentUser", postData)
             window.location.href = "userDetails.html"
         }
         else {

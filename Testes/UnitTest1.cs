@@ -2,13 +2,14 @@
 using Moq;
 using Moq.EntityFrameworkCore;
 using Entitis;
-
-
+using Repository;
+using Repository.UserRepository;
+using Services;
 namespace Testes
 {
     public class UnitTest1
     {
-        [fact]
+        [Fact]
         public async Task Login_Working()
         {
             var user = new User() { Email = "ll@gmail.com", Password = "Ll1234@#" };
@@ -17,11 +18,11 @@ namespace Testes
             var users = new List<User>() { user };
             mockContext.Setup(x => x.Users).ReturnsDbSet(users);
 
-            var userREpository = new MyRepository(mockContext.Object);
+            var userREpository = new UserRepository(mockContext.Object);
 
-            var result = await userREpository.Login(user.UserName, user.Password);
+            var result = await userREpository.Login(user.Email, user.Password);
 
-            Assert.Equal(user, result);
+            Assert.Equals(user, result);
         }
     }
 }

@@ -40,7 +40,7 @@ namespace OurShop.Controllers
         // POST api/<UsersController>
         [HttpPost]
 
-        public async Task<IActionResult> Post([FromBody] User user)
+        public async Task<ActionResult> Post([FromBody] User user)
         {
             int res= userServices.cheakPassword(user.Password);
             if(res < 3)
@@ -48,8 +48,11 @@ namespace OurShop.Controllers
                 return (BadRequest(user));
             }
             User newUser = await userServices.AddUser(user);
-
-            return (Ok(newUser));
+            if (newUser != null)
+            {
+                return CreatedAtAction(nameof(Get), new { id = newUser.Id }, newUser);
+            }
+            return BadRequest(newUser);
         }
 
 
